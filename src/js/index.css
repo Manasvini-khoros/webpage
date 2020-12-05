@@ -1,0 +1,50 @@
+body{
+    font-family: Montserrat;
+}
+header{
+    display: flex;
+    justify-content: center;
+}
+
+.img
+{
+    height:100px;
+    width:100px;
+}
+
+.title
+{
+    color: black;
+    font-size: 40pt;
+}
+
+.buttons
+{
+    position: absolute;
+    left: 51%;
+    transform: translate(-40%, -50%);
+    background-color: deepskyblue;
+    color: black;
+    font-size: x-large;
+}
+.message:nth-child(odd)
+{
+    background-color: paleturquoise;
+}
+
+.message:nth-child(even)
+{
+    background-color: lavender;
+}
+
+.profile
+{
+    width:150px;
+    height:175px;
+}
+
+.text
+{
+    padding: 5px;
+    text-indent:15px;
+}
