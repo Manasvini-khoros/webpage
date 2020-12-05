@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Twitter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!script src="demo.js"><!/script>
+
+</head>
+<body>
+<header>
+<img  src="../twitter.png" height="100" width="100" style="vertical-align: central"/>
+    <h1 style="text-align: center;color: #000000;font-family: 'Comic Sans MS';font-size: xxx-large" > <b>TWITTER</b></h1></header>
+<div style="vertical-align:middle;text-align:center;">
+    <button style="background-color: deepskyblue;color: black;font-family: 'Times New Roman';font-size: x-large;" value = "button" onclick="demo()">GET TIMELINE</button>
+</div>
+<div id="tweetSection" style=" border: 1px solid black">
+</div>
+
+
+
+<script>
+    function demo() {
+        $(document).ready(function() {
+            jQuery.ajax({
+                url: "http://localhost:8080/Twitter/TimeLine",
+                type: "GET",
+                success: function(result) {
+                    console.log(result);
+                    const tweets = result;
+                    document.getElementById('tweetSection').innerHTML = tweets.map((tweet, index)=>
+                        `<div>
+                         <div style="background-color: darkgray"
+
+                          <img src =${tweet.profileUrl}><br>
+                          <b><i>Name :</i></b> ${tweet.name} <br>
+                          <b><i>Tweet message :</i></b> ${tweet.info} <br>
+                          <b><i>CreatedAt :</i></b> ${tweet.createDate} <br>
+                          <b><i>Id :</i></b> ${tweet.id}<br>
+                          <b><i>Tweet URL :</i></b><a href="https://twitter.com/${tweet.id}">click here to go to tweet</a><br><br>
+                        </div>`
+                    ).join(' ')
+                },
+                error: function(error) {
+                    document.getElementById('tweetSection').innerHTML = ("error");
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>
