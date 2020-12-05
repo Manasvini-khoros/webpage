@@ -28,11 +28,10 @@
                     document.getElementById('tweetSection').innerHTML = tweets.map(tweet =>
                         `<div class = "message">
 
-                          <img class = profile src =${tweet.profileUrl} align="left">
+                          <a href="${tweet.profileUrl}"><img class = profile src =${tweet.profileUrl} align="left"></a>
                           <div class="text"> <b><i>Name :</i></b> ${tweet.name} <br> </div>
                           <div class="text"><b><i>Screen name Id :</i></b> ${tweet.id}<br></div>
                           <div class="text"><b><i>Tweet message :</i></b> ${tweet.info} <br></div>
-                          <div class="text"><b><i>Profile image URL : </i></b><a href="${tweet.profileUrl}">${tweet.profileUrl}</a> </div>
                           <div class="text"><b><i>CreatedAt :</i></b> ${tweet.createDate} <br></div>
                           <div class="text"><b><i>Tweet URL :</i></b><a href="https://twitter.com/${tweet.id}">click here to go to tweet</a><br><br></div>
                         </div>`
