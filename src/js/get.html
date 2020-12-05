@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Twitter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="demo.js"></script>
+</head>
+<body>
+<h1><b>Welcome to Twitter TimeLine</b></h1>
+<button value = "button" onclick="demo()">GET</button>
+
+    <div id="tweetSection" ></div>
+</div>
+<script>
+    function demo() {
+        $(document).ready(function() {
+            jQuery.ajax({
+                url: "http://localhost:8080/Twitter/TimeLine",
+                type: "GET",
+                success: function(result) {
+                    console.log(result);
+                    const tweets = result;
+                    document.getElementById('tweetSection').innerHTML = tweets.map(tweet =>
+                        `<div>
+                          <div>
+                          <img src =${tweet.profileUrl}><br>
+                          <b>Name :</b> ${tweet.name} <br>
+                          <b>Tweet message :</b> ${tweet.info} <br>
+                          <b>CreatedAt :</b> ${tweet.createDate} <br>
+                          <b>Id :</b> ${tweet.id}<br>
+                          <b>Profile Image Url:</b> ${tweet.profileUrl}"<br><br></div>
+                        </div>`
+                    ).join(' ')
+                },
+                error: function(error) {
+                    document.getElementById('tweetSection').innerHTML = ("error");
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>
