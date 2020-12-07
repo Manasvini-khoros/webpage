@@ -27,14 +27,16 @@
                     const tweets = result;
                     document.getElementById('tweetSection').innerHTML = tweets.map(tweet =>
                         `<div class = "message">
+                         <div onclick="location.href='https://twitter.com/${tweet.screenName}/status/${tweet.id}';" >
 
                           <a href="${tweet.profileUrl}"><img class = profile src =${tweet.profileUrl} align="left"></a>
                           <div class="text"> <b><i>Name :</i></b> ${tweet.name} <br> </div>
-                          <div class="text"><b><i>Screen name Id :</i></b> ${tweet.id}<br></div>
+                          <div class="text"><b><i>Screen name Id :</i></b> ${tweet.screenName}<br></div>
+                          <div class="text"><b><i>User Id :</i></b> ${tweet.id}<br></div>
                           <div class="text"><b><i>Tweet message :</i></b> ${tweet.info} <br></div>
                           <div class="text"><b><i>CreatedAt :</i></b> ${tweet.createDate} <br></div>
-                          <div class="text"><b><i>Tweet URL :</i></b><a href="https://twitter.com/${tweet.id}">click here to go to tweet</a><br><br></div>
-                        </div>`
+                          <div class="text"><b><i>Twitter profile :</i></b><a href="https://twitter.com/${tweet.screenName}">click here to go to twitter profile</a><br><br></div>
+                        </div></div>`
                     ).join(' ')
                 },
                 error: function(error) {
